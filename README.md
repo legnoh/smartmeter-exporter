@@ -84,8 +84,8 @@ Metrics
 |Name|Type|Desc|
 |----|----|----|
 |`power_consumption_watt`|Gauge|瞬時電力計測値(W)|
-|`power_consumption_ampare_r`|Gauge|瞬時電流計測値 T相(mA)|
-|`power_consumption_ampare_t`|Gauge|瞬時電流計測値 R相(mA)|
+|`power_consumption_ampare_r`|Gauge|瞬時電流計測値 R相(mA)|
+|`power_consumption_ampare_t`|Gauge|瞬時電流計測値 T相(mA)|
 
 Appendix
 ----
