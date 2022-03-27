@@ -66,8 +66,8 @@ class SmartMeterConnection:
         blob = b''
         while blob == b'':
             blob = self.__connection.readline()
-        text = blob.decode(encoding='utf-8')[:-2]
-        self.__serial_logger.debug(f'Receive: {text}')
+            text = blob.decode(encoding='utf-8')[:-2]
+            self.__serial_logger.debug(f'Receive: {text}')
         return text
 
     def __check_version(self) -> str:
