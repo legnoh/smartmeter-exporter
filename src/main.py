@@ -28,7 +28,6 @@ if __name__ == '__main__':
                 watt_data = int(watt_raw_data,16)
                 watt_gauge.set(watt_data)
                 logger.info(f'Current power consumption(Watt): {watt_data} W')
-            time.sleep(sm_interval)
 
             ampare_data = conn.get_data('ampare')
             if not ampare_data is None:
