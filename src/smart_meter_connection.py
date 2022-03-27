@@ -64,8 +64,13 @@ class SmartMeterConnection:
 
     def __read_line_serial(self) -> str:
         blob = b''
+        blank_counter = 0
         while blob == b'':
+            blank_counter += 1
             blob = self.__connection.readline()
+            if blank_counter > 100:
+                self.__logger.debug(f'Blank line limit exceeded. retry...')
+                return ""
             text = blob.decode(encoding='utf-8')[:-2]
             self.__serial_logger.debug(f'Receive: {text}')
         return text
