@@ -1,9 +1,15 @@
-name: ci
+name: build
 
 on:
-  pull_request:
+  push:
     branches:
     - main
+    paths-ignore:
+    - '.github/**'
+    - '.vscode/**'
+    - '.example.env'
+    - 'LICENSE'
+    - 'README.md'
 
 jobs:
   docker-build-and-push:
@@ -30,4 +36,12 @@ jobs:
         with:
           context: .
           platforms: linux/arm/v7
-          push: false
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/smartmeter-exporter:latest
+
+      - name: Restart Docker on RaspberryPi
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          repo: legnoh/life-metrics-grafana-deployment
+          workflow: Reset docker-compose setting
+          token: ${{ secrets.PERSONAL_TOKEN }}
