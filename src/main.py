@@ -30,8 +30,8 @@ if __name__ == '__main__':
             time.sleep(sm_interval)
 
             ampare_data = conn.get_data('ampare')
-            ampare_data_r = int(ampare_data[0:4], 16) * 0.1
-            ampare_data_t = int(ampare_data[4:8], 16) * 0.1
+            ampare_data_r = int(ampare_data[0:4], 16) * 100
+            ampare_data_t = int(ampare_data[4:8], 16) * 100
             if not ampare_data_r  is None:
                 ampare_gauge_r.set(ampare_data_r)
                 logger.info(f'Current power consumption(Ampare/R): {ampare_data_r} A')
