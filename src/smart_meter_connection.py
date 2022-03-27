@@ -64,9 +64,8 @@ class SmartMeterConnection:
 
     def __read_line_serial(self) -> str:
         blob = b''
-        while blob == b'':
+        while blob == b'' or blob == b'\r\n':
             blob = self.__connection.readline()
-            time.sleep(1)
         text = blob.decode(encoding='utf-8')[:-2]
         self.__serial_logger.debug(f'Receive: {text}')
         return text
