@@ -23,9 +23,10 @@ if __name__ == '__main__':
     with SmartMeterConnection(sm_id, sm_key, sm_dev) as conn:
         conn.initialize_params()
         while True:
-            watt_data = conn.get_data('watt')
-            if not watt_data is None:
-                watt_gauge.set(int(watt_data,16))
+            watt_raw_data = conn.get_data('watt')
+            if not watt_raw_data is None:
+                watt_data = int(watt_raw_data,16)
+                watt_gauge.set(watt_data)
                 logger.info(f'Current power consumption(Watt): {watt_data} W')
             time.sleep(sm_interval)
 
