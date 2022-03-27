@@ -23,19 +23,20 @@ if __name__ == '__main__':
     with SmartMeterConnection(sm_id, sm_key, sm_dev) as conn:
         conn.initialize_params()
         while True:
-            watt_data = int(conn.get_data('watt'),16)
+            watt_data = conn.get_data('watt')
             if not watt_data is None:
-                watt_gauge.set(watt_data)
+                watt_gauge.set(int(watt_data,16))
                 logger.info(f'Current power consumption(Watt): {watt_data} W')
             time.sleep(sm_interval)
 
             ampare_data = conn.get_data('ampare')
-            ampare_data_r = int(ampare_data[0:4], 16) * 100
-            ampare_data_t = int(ampare_data[4:8], 16) * 100
-            if not ampare_data_r  is None:
-                ampare_gauge_r.set(ampare_data_r)
-                logger.info(f'Current power consumption(Ampare/R): {ampare_data_r} A')
-            if not ampare_data_t  is None:
-                ampare_gauge_t.set(ampare_data_t)
-                logger.info(f'Current power consumption(Ampare/T): {ampare_data_t} A')
+            if not ampare_data is None:
+                ampare_data_r = int(ampare_data[0:4], 16) * 100
+                ampare_data_t = int(ampare_data[4:8], 16) * 100
+                if not ampare_data_r  is None:
+                    ampare_gauge_r.set(ampare_data_r)
+                    logger.info(f'Current power consumption(Ampare/R): {ampare_data_r} mA')
+                if not ampare_data_t  is None:
+                    ampare_gauge_t.set(ampare_data_t)
+                    logger.info(f'Current power consumption(Ampare/T): {ampare_data_t} mA')
             time.sleep(sm_interval)

@@ -1,4 +1,4 @@
-import logging
+import logging,time
 from typing import Optional, Tuple
 from serial import Serial
 import echonet as echonet
@@ -63,7 +63,10 @@ class SmartMeterConnection:
         self.__serial_logger.debug('Echo back: ' + str(echo_back))
 
     def __read_line_serial(self) -> str:
-        blob = self.__connection.readline()
+        blob = b''
+        while blob == b'':
+            blob = self.__connection.readline()
+            time.sleep(1)
         text = blob.decode(encoding='utf-8')[:-2]
         self.__serial_logger.debug(f'Receive: {text}')
         return text
