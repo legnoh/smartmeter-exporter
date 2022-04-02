@@ -1,7 +1,7 @@
 smartmeter-exporter
 ====
 
-[![Badge](https://img.shields.io/badge/docker-legnoh/smartmeter--exporter-blue?label=healthinesses&logo=docker&link=https://hub.docker.com/r/legnoh/smartmeter-exporter)](https://hub.docker.com/r/legnoh/smartmeter-exporter)
+[![Badge](https://img.shields.io/badge/docker-legnoh/smartmeter--exporter-blue?logo=docker&link=https://hub.docker.com/r/legnoh/smartmeter-exporter)](https://hub.docker.com/r/legnoh/smartmeter-exporter)
 
 <img src="https://user-images.githubusercontent.com/706834/160298533-026fd0e3-2312-4387-9829-b92d13b1e2af.png">
 
