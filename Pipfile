@@ -10,7 +10,7 @@ pyserial = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3"
 
 [scripts]
 main = "python3 src/main.py"
