@@ -1,6 +1,8 @@
 smartmeter-exporter
 ====
 
+[![Badge](https://img.shields.io/badge/docker-legnoh/smartmeter-exporter?logo=docker&link=https://hub.docker.com/r/legnoh/smartmeter-exporter)](https://hub.docker.com/r/legnoh/smartmeter-exporter)
+
 <img src="https://user-images.githubusercontent.com/706834/160298533-026fd0e3-2312-4387-9829-b92d13b1e2af.png">
 
 - スマートメーターから瞬時電力計測値(W)/瞬時電流計測値(A)を取得する Prometheus Exporter です。
