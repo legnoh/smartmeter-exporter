@@ -79,7 +79,7 @@ SMARTMETER_GET_INTERVAL=10
 PORT=8000
 
 # exec
-docker run -p 8000:8000 --env-file='.env' legnoh/smartmeter-exporter
+docker run -p 8000:8000 --env-file='.env' --device=/dev/ttyUSB0:/dev/ttyUSB0 legnoh/smartmeter-exporter
 ```
 
 Metrics
