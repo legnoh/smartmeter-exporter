@@ -61,7 +61,7 @@ vi .env
 pipenv run main
 ```
 
-### 起動(Docker/WIP)
+### 起動(Docker)
 
 - macOS/Windows では、Docker にUSBデバイスをパスさせることができないので起動できません。
   - [Can I pass through a USB device to a container? | FAQ | Docker Documentation](https://docs.docker.com/desktop/faqs/#can-i-pass-through-a-usb-device-to-a-container)
