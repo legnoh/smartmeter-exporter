@@ -59,6 +59,9 @@ vi .env
 
 # exec
 pipenv run main
+
+# check
+curl http://localhost:8000/metrics
 ```
 
 ### 起動(Docker)
@@ -71,8 +74,11 @@ pipenv run main
 # config
 vi .env
 
+# required
 SMARTMETER_ID=""
 SMARTMETER_PASSWORD=""
+
+# options
 SMARTMETER_DEVICE="/dev/ttyUSB0"
 SMARTMETER_LOGLEVEL=10 #10:DEBUG 20:INFO
 SMARTMETER_GET_INTERVAL=10

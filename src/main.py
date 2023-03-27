@@ -4,12 +4,12 @@ from smart_meter_connection import SmartMeterConnection
 
 if __name__ == '__main__':
 
-    sm_id = os.environ['SMARTMETER_ID']
-    sm_key= os.environ['SMARTMETER_PASSWORD']
-    sm_dev = os.environ['SMARTMETER_DEVICE']
-    sm_log_level = int(os.environ['SMARTMETER_LOGLEVEL'])
-    sm_interval = int(os.environ['SMARTMETER_GET_INTERVAL'])
-    sm_port = int(os.environ['PORT'])
+    sm_id = os.environ.get('SMARTMETER_ID', None)
+    sm_key= os.environ.get('SMARTMETER_PASSWORD', None)
+    sm_dev = os.environ.get('SMARTMETER_DEVICE', '/dev/ttyUSB0')
+    sm_log_level = int(os.environ.get('SMARTMETER_LOGLEVEL', 10))
+    sm_interval = int(os.environ.get('SMARTMETER_GET_INTERVAL', 10))
+    sm_port = int(os.environ.get('PORT', 8000))
 
     logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=sm_log_level)
     logger = logging.getLogger('connection')
