@@ -41,7 +41,7 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/smartmeter-exporter:latest
 
       - name: Restart Docker on RaspberryPi
-        uses: benc-uk/workflow-dispatch@v1
+        uses: benc-uk/workflow-dispatch@v121
         with:
           repo: legnoh/life-metrics-grafana-deployment
           workflow: Reset docker-compose setting
